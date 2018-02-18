@@ -1,0 +1,32 @@
+
+// Base
+// -------------------
+
+// Used for global styles
+// Or to override certain Atom core styles
+
+// -------------------
+
+body {
+  font-size: @font-size;
+  color: @text-color;
+  background-color: @app-background-color;
+}
+
+atom-pane {
+  border-right: 1px solid @base-border-color;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+// Custom app title bar
+.title-bar {
+  // Draw a slight white gradient on top of the custom title bar
+  background: @oxygen-panel-base-color;
+  background-image: radial-gradient(farthest-corner at 50% 0%,
+                              rgba(255, 255, 255, 0.1) 5%, @oxygen-panel-base-color 70%);
+   background-size: 75% 100%;
+   background-position: top center;
+   background-repeat: no-repeat;
+}

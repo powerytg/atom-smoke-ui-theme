@@ -1,0 +1,83 @@
+//
+// Tabs
+// -------------------
+
+// Displays selectable tabs above the editor.
+// Overrides: atom/tabs
+
+.tab-bar {
+  background: @oxygen-panel-base-color;
+  border-bottom: 1px solid @oxygen-tab-shadow-color;
+
+  .tab {
+    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 2px;
+    margin-bottom: -1px;
+    color: @text-color;
+    height: @tab-height;
+    line-height: @tab-height;
+    font-size: @font-size;
+
+    // Background
+    background-image: @oxygen-tab-background;
+    background-clip: border-box;
+
+    // A bit of subtile border
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: 2px solid @oxygen-tab-shadow-color;
+
+    // Inner and outter shadows
+    box-shadow: 0px 1px 5px 0px @oxygen-tab-shadow-color,  // Drop shadow
+                0px 1.5px 1px 0 #656c72 inset;         // Top inner stroke in white color
+
+    transition: @oxygen-hover-transition;
+
+    &.active {
+      font-weight: bold;
+      color: @text-color-selected;
+    }
+
+    &.active,
+    &:hover {
+      background-image: @oxygen-tab-selected-background;
+    }
+
+    &:hover {
+      color: @text-color-selected;
+      box-shadow: 0 0 @oxygen-hover-glow-radius 0 @oxygen-glow-color;
+    }
+
+    // Modified Icon (the circle) -------------------
+    &.modified:not(:hover) .close-icon {
+      top: 50%;
+      right: @component-padding + 4px; // 4px -> half of icon size
+      margin-top: -3px;
+      border-color: @text-color-info;
+    }
+    &.modified:hover .close-icon {
+      color: currentColor;
+    }
+
+    // Close Icon (the X) -------------------
+    .close-icon:hover {
+      color: @text-color-selected;
+    }
+    &.active .close-icon:hover {
+      color: @text-color;
+    }
+
+
+    // Dragging -------------------
+    // Styles get applied while dragging a tab
+    &.is-dragging {
+      background: darken(@tab-background-color, 10%);
+      border-color: transparent;
+      opacity: .5;
+      & .close-icon {
+        visibility: hidden;
+      }
+    }
+  }
+}

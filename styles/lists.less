@@ -1,0 +1,93 @@
+
+// Lists
+// -------------------
+
+// Used in different places, like the Tree View, Commmand Palette etc.
+// Overrides: atom/static/lists.less
+
+// List Group -------------------
+.list-group {
+  li {
+    padding-left: @component-padding/2;
+
+    // We want to highlight the background of the list items because we dont know their size.
+    &.selected {
+      color: @text-color-selected;
+      .render-hover-highlight();
+      &:before{ display: none; }
+    }
+  }
+
+  li:hover {
+      .render-hover-highlight();
+  }
+}
+
+.render-hover-highlight() {
+  border: 1px solid 567089;
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: #4b596c;
+  box-shadow:  0 0 5px 1px rgba(0, 0, 0, 0.6),
+               inset 0 0px 4px 1px rgba(40, 150, 244, 0.15);
+}
+
+.render-selected-highlight() {
+  margin-left: 4px;
+  margin-right: 4px;
+
+  .render-button-background(@oxygen-button-base-color);
+
+  // A bit of subtile border
+  border-radius: @oxygen-button-radius;
+  border-image: @oxygen-button-border;
+  border-image-slice: 1;
+
+  // Inner and outter shadows
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25),   // Drop shadow
+              0px 2px 1px #f7f6f5 inset,          // Top inner stroke in white color
+              0px -1px 1px #f7f6f5 inset;         // Bottom inner stroke in dark color
+}
+
+// List Tree -------------------
+.list-tree {
+  color: @text-color;
+  .selected {
+    color: @text-color-selected;
+  }
+}
+
+// List tree selected item
+.list-group .selected::before,
+.list-tree .selected::before {
+  .render-hover-highlight();
+}
+
+// Select List -------------------
+.select-list {
+  li {
+    padding: @component-padding/2 @component-padding;
+  }
+  .status {
+    float: right;
+  }
+}
+
+// Popover List -------------------
+// Used as a popover for something like autocomplete.
+.select-list.popover-list {
+  @popover-list-padding: @component-padding/2;
+
+  padding: @popover-list-padding;
+  border-radius: @component-border-radius;
+  background-color: @overlay-background-color;
+  box-shadow: 0 2px 12px 1px @oxygen-glow-color;
+
+  .list-group {
+    margin-top: @popover-list-padding;
+    li {
+      padding-left: @popover-list-padding;
+    }
+  }
+}

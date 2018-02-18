@@ -1,0 +1,36 @@
+.atom-dock {
+  &-resize-handle {
+    position: absolute;
+    z-index: 10;
+
+    &.left, &.right {
+      top: 0;
+      bottom: 0;
+    }
+
+    &.left {
+      border-right: 1px solid @oxygen-dock-border-color;
+      right: 0;
+    }
+
+    &.right {
+      border-left: 1px solid @oxygen-dock-border-color;
+      left: 0;
+    }
+
+    &.top, &.bottom {
+      left: 0;
+      right: 0;
+    }
+
+    &.top {
+      border-bottom: 1px solid @oxygen-dock-border-color;
+      bottom: 0;
+    }
+
+    &.bottom {
+      border-top: 1px solid @oxygen-dock-border-color;
+      top: 0;
+    }
+  }
+}

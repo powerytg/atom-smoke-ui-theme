@@ -1,0 +1,23 @@
+{
+  "name": "atom-smoke-ui",
+  "theme": "ui",
+  "version": "0.0.0",
+  "description": "Dark, smoky, and smooth theme, highly optimized for readability",
+  "keywords": [
+    "ui",
+    "theme",
+    "smoke",
+    "blue",
+    "dark",
+    "smooth",
+    "kde",
+    "linux",
+    "clean",
+    "plasma"
+  ],
+  "repository": "https://github.com/powerytg/atom-smoke-ui",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

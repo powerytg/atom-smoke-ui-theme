@@ -1,0 +1,63 @@
+
+// Buttons
+// -------------------
+
+// Overrides: atom/atom/static/buttons.less
+
+.btn {
+  .render-button(@oxygen-button-base-color, @oxygen-button-radius);
+}
+
+.render-button(@button-color, @radius) {
+  .render-button-background(@button-color);
+  background-clip: padding-box;
+
+  // A bit of subtile border
+  border-radius: @radius;
+
+  // Inner and outter shadows
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25),   // Drop shadow
+              0px 2px 1px rgba(255, 255, 255, 0.4) inset,          // Top inner stroke
+              0px -1px 1px #1f2732 inset;         // Bottom inner stroke
+
+  transition: @oxygen-hover-transition;
+
+  &:hover,
+  &:focus {
+    color: @text-color-highlight;
+    box-shadow: 0 0 @oxygen-hover-glow-radius 0 @oxygen-glow-color;
+  }
+  &:active {
+    color: fade(@text-color-selected, 66%);
+    background-color: darken(@button-background-color, 2%);
+  }
+  &.selected {
+    color: @text-color-selected;
+    background-color: @button-background-color-selected;
+  }
+  &:focus,
+  &:focus:active {
+    outline: none;
+  }
+}
+
+// Colored buttons -----------------------
+
+.btn.btn-primary { .btn-color(@background-color-info); }
+.btn.btn-info    { .btn-color(@background-color-info); }
+.btn.btn-success { .btn-color(@background-color-success); }
+.btn.btn-warning { .btn-color(@background-color-warning); }
+.btn.btn-error   { .btn-color(@background-color-error); }
+
+.btn-color(@bg) {
+  color: @oxygen-colored-button-text-color;
+  .render-button-background(@bg);
+}
+
+// Button Group -----------------------
+
+.btn-group > .btn {
+  // Margins avoid outter shadows to overlap each other
+  margin-left: 5px;
+  margin-right: 5px;
+}
